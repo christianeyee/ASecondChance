@@ -52,12 +52,10 @@
   <div class="centered">
     <span id="level">8</span><br>
     <p id="description">Your level of dependence is high. <br> Let this app help you on your journey to being smoke-free today.</p>
-    <div id="container-buttons">
-      <button id="craved" class="btn btn-circle-lg btn-warning">I'm craving!</button>
-      
-      <p id="smoked-count">{{counter}} / 14</p>
-
-      <button id="smoked" class="btn btn-circle-lg btn-danger">I smoked!</button><br>
+    <p id="smoked-count">{{counter}} / 14</p>
+    <div id="btn-group container-buttons">
+      <button id="craved" class="btn btn-lg btn-warning">I'm craving!</button>
+      <button id="smoked" class="btn btn-lg btn-danger">I smoked!</button><br>
     </div>
     <button class="btn btn-success" id="view-stats">View My Stats</button>
   </div>
@@ -109,7 +107,7 @@
 
         <div class="modal-body">
           <label for="name">Message</label>
-          <input type="textarea" id="message" value="I'm bored. Will you come eat with me?" rows="5"/>
+          <input type="textarea" id="message" style="min-width: 100%" value="I'm bored and craving cigarettes. Stop me." rows="5"/>
         </div>
 
         <div class="modal-footer">
