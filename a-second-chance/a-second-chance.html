@@ -2,6 +2,10 @@
   <title>A Second Chance</title>
 </head>
 
+<body>
+  {{> messageModal}}
+</body>
+
 <template name="main">
   <div class="container" id="container-main">
 
@@ -47,8 +51,15 @@
 <template name="home">
   <div class="centered">
     <span id="level">8</span><br>
-    <p id="description">Your level of dependence is high. You aren't in control of your smoking– it is in control of you! When you make the decision to quit, you may want to talk with your doctor about nicotine replacement therapy or other medications to help you break your addiction.</p>
-    <button class="btn btn-warning" id="view-stats">View My Stats</button>
+    <p id="description">Your level of dependence is high. <br> Let this app help you on your journey to being smoke-free today.</p>
+    <div id="container-buttons">
+      <button id="craved" class="btn btn-circle-lg btn-warning">I'm craving!</button>
+      
+      <p id="smoked-count">{{counter}} / 14</p>
+
+      <button id="smoked" class="btn btn-circle-lg btn-danger">I smoked!</button><br>
+    </div>
+    <button class="btn btn-success" id="view-stats">View My Stats</button>
   </div>
 </template>
 
@@ -85,6 +96,30 @@
 
 <template name="stats">
   <div id="chart">{{createChart}}</div>
+</template>
+
+<template name="messageModal">
+  <div class="modal fade" id="sendMessage">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h4 class="modal-title">Send <i>BFF</i> a message</h4>
+        </div>
+
+        <div class="modal-body">
+          <label for="name">Message</label>
+          <input type="textarea" id="message" value="I'm bored. Will you come eat with me?" rows="5"/>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" id="save">Send</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </template>
 
 

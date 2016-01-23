@@ -6,6 +6,8 @@ if (Meteor.isServer) {
 
 if (Meteor.isClient) {
 
+  Session.setDefault('counter', 0);
+
   Meteor.startup(function() {
 
     $('#level').each(function () {
@@ -53,12 +55,27 @@ if (Meteor.isClient) {
   });
 
   Template.home.events({
-    'click button': function(event) {
+    'click #smoked': function () {
+      event.preventDefault();
+      Session.set('counter', Session.get('counter') + 1);
+    },
+
+    'click #view-stats': function(event) {
       event.preventDefault();
       Router.go('stats');
-    }
+    },
+
+    'click #craved': function(event) {
+      event.preventDefault();
+      $('#sendMessage').modal('show');
+    } 
   });
 
+  Template.home.helpers({
+    counter: function () {
+      return Session.get('counter');
+    }
+  });
 
   Template.stats.helpers({
     createChart: function() {
@@ -271,9 +288,6 @@ if (Meteor.isClient) {
 
     // Apply the theme
     Highcharts.setOptions(Highcharts.theme);
-
-
-
 
       Meteor.defer(function() {
         Highcharts.chart('chart', {
