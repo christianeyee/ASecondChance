@@ -22,3 +22,7 @@ twbs:bootstrap
 accounts-password
 iron:router
 accounts-ui
+highcharts:highcharts-meteor
+
+
+highcharts-container
